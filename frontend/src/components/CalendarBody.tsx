@@ -3,14 +3,13 @@ import SidePanel from "./SidePanel/SidePanel";
 
 const CalendarBody = () => {
     return (
-        <div className="d-flex flex-row">
-            <div className="p-2">
-                <div>sidebar content</div>
+        <div className="container text-center">
+            <div className="row">
+                <div className="col-8">1 of 2</div>
+                <div className="col-4">
+                    <SidePanel />
+                </div>
             </div>
-            <div className="p-2">
-                <div>body content</div>
-            </div>
-            <SidePanel />
         </div>
     );
 };
