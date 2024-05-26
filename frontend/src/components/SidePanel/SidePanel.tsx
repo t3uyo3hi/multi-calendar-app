@@ -4,7 +4,7 @@ import Todo from "./Todo";
 
 const CalendarSidePanel = () => {
     return (
-        <div className="span2">
+        <div className="l_SidePanel ">
             <Event />
             <Todo />
         </div>
