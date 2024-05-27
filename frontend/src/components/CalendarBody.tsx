@@ -5,5 +5,7 @@ const CalendarBody = () => {
 };
 
 // 初回レンダー用フラグ
-
+const CalendarBody = () => {
+  console.log("test");
+};
 export default CalendarBody;
