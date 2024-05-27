@@ -1,9 +1,11 @@
 import React from "react";
-<<<<<<< HEAD
-<console className="log"></console>;
-=======
 
-console.log();
+const CalendarHeader = () => {
+    return (
+        <div className="bg-primary">
+            <h1>CalendarHeader</h1>
+        </div>
+    );
+};
 
->>>>>>> f1910887ed8a2f37dcb557214431090d13583ee4
 export default CalendarHeader;
