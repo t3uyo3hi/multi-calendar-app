@@ -5,7 +5,7 @@ import SidePanel from "./components/SidePanel/SidePanel";
 
 const App = () => {
     return (
-        <div className="container text-center">
+        <div className="text-center">
             <div className="row">
                 <div className="col-9">
                     <CalendarHeader />

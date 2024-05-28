@@ -22,5 +22,12 @@ body {
 
 /* ---------- SidePanel ---------- */
 .l_SidePanel {
+    padding: 120px 0.5rem;
     background-color: #b6d6eb;
+}
+
+.SidePanel_body {
+    background-color: #fff;
+    margin: 1rem;
+    border-radius: 0.5rem;
 }
