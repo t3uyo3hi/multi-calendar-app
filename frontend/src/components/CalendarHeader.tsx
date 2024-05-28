@@ -7,4 +7,5 @@ const CalendarHeader = () => {
         </div>
     );
 };
+
 export default CalendarHeader;
