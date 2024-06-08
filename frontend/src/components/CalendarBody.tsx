@@ -4,20 +4,6 @@ interface CalendarBodyProps {
   date: Date;
 }
 
-const DayOfWeekHead = () => {
-  const weeks = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-
-  return (
-    <div className="calendar_table-head ">
-      {weeks.map((week, index) => (
-        <div className="calendar_table-data" key={index}>
-          {week}
-        </div>
-      ))}
-    </div>
-  );
-};
-
 const CalendarBody = (props: CalendarBodyProps) => {
   const thisYear = props.date.getFullYear();
   const thisMonth = props.date.getMonth();
@@ -30,7 +16,7 @@ const CalendarBody = (props: CalendarBodyProps) => {
   let dayCount = 1;
 
   return (
-    <div className="text-center calendar">
+    <div className="text-center calendar  disp">
       <DayOfWeekHead />
       {[...Array(rowNumber)].map((_, week) => (
         <div className="calendar_table-row d-flex" key={week}>
