@@ -7,25 +7,24 @@ interface CalendarHeaderProps {
   setDate: React.Dispatch<React.SetStateAction<Date>>;
 }
 
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 const CalendarHeader = (props: CalendarHeaderProps) => {
   const thisYear = props.date.getFullYear();
   const thisMonth = props.date.getMonth();
-
-  // の名前を格納した配列を追加
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
 
   const handleChangeCalendar = (pager: string) => {
     if (pager === "prev") {
