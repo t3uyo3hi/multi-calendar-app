@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 
 const DayOfWeekHead = () => {
   const weeks = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
@@ -13,3 +13,5 @@ const DayOfWeekHead = () => {
     </div>
   );
 };
+
+export default DayOfWeekHead;

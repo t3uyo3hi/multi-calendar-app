@@ -17,7 +17,6 @@ const CalendarBody = (props: CalendarBodyProps) => {
 
   return (
     <div className="text-center calendar  disp">
-      <DayOfWeekHead />
       {[...Array(rowNumber)].map((_, week) => (
         <div className="calendar_table-row d-flex" key={week}>
           {[...Array(7)].map((_, day) => {
