@@ -23,6 +23,13 @@ body {
 }
 
 /* ---------- calendar ---------- */
+/* .l_header {
+} */
+
+.l_header-title {
+  font-size: 40px;
+}
+
 .calendar {
   display: flex;
   flex-direction: column;
@@ -62,8 +69,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* color: var(--date-color); */
 }
 
 .calendar_table-data.is-disabled {
