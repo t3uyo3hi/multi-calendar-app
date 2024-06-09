@@ -1,6 +1,6 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import { Routes, Route, Link } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
+import Tab from "react-bootstrap/Tab";
 import SidePanelModal from "./CalendarModal";
 import Account from "./Account";
 import Cloud from "./Cloud";
@@ -10,28 +10,42 @@ import Todo from "./Todo";
 const CalendarSidePanel = () => {
     return (
         <>
-            <BrowserRouter>
-                <div className="l_SidePanel">
-                    <div className="SidePanel_header d-flex justify-content-around pt-5">
-                        <Cloud />
-                        <Account />
-                    </div>
-                    <Routes>
-                        <Route path="/" element={<Event />} />
-                        <Route path="/todo" element={<Todo />} />
-                    </Routes>
-
-                    <SidePanelModal />
-                    <div className="d-flex justify-content-center mt-5">
-                        <Link to="/">
-                            <i className="bi bi-dot fs-2"></i>
-                        </Link>
-                        <Link to="/Todo">
-                            <i className="bi bi-dot fs-2"></i>
-                        </Link>
-                    </div>
+            <div className="l_SidePanel">
+                <div className="SidePanel_header d-flex justify-content-around pt-5">
+                    <Cloud />
+                    <Account />
                 </div>
-            </BrowserRouter>
+                <div className="mt-5">
+                    <Tab.Container>
+                        <Tab.Content>
+                            <Tab.Pane eventKey="Event">
+                                <Event />
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="Todo">
+                                <Todo />
+                            </Tab.Pane>
+                        </Tab.Content>
+                        <SidePanelModal />
+                        <Nav className="mt-5 justify-content-center gap-5" variant="underline" defaultActiveKey="Event">
+                            <Nav.Item>
+                                <Nav.Link eventKey="Event">
+                                    <i className="fs-3 bi bi-calendar-event"></i>
+                                </Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link eventKey="Todo">
+                                    <i className="fs-3 bi bi-check2-square"></i>
+                                </Nav.Link>
+                            </Nav.Item>
+                        </Nav>
+                    </Tab.Container>
+                </div>
+
+                <div className="d-flex justify-content-center mt-5">
+                    <i className="bi bi-dot fs-2"></i>
+                    <i className="bi bi-dot fs-2"></i>
+                </div>
+            </div>
         </>
     );
 };
