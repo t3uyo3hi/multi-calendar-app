@@ -1,7 +1,6 @@
 import React from "react";
-import DayOfWeekHead from "./components/DayOfWeekHead;
 
-const DayOfWeekHead = () => {
+export const DayOfWeekHead = () => {
   const weeks = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
   return (
