@@ -1,7 +1,8 @@
 import React from "react";
 
-export const DayOfWeekHead = () => {
-    const weeks = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+const DayOfWeekHead = () => {
+  const weeks = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
     return (
         <div className="calendar_table-head ">
