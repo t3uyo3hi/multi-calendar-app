@@ -1,36 +1,48 @@
 import React from "react";
-import { Stack, Button } from "react-bootstrap";
-// import Event from "./Event";
-// import Todo from "./Todo";
+import { BrowserRouter } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
+import SidePanelModal from "./CalendarModal";
+import Event from "./Event";
+import Todo from "./Todo";
 
 const CalendarSidePanel = () => {
     return (
-        <div className="l_SidePanel ">
-            <div className="SidePanel_header d-flex justify-content-around">
-                <div>cloudy icon</div>
-                <div>acount </div>
-            </div>
-            <Stack className="mt-5" gap={3}>
-                <Button className="w-75 m-auto" variant="light">
-                    <span className="fs-6 ">12:00-14:00</span>
-                    <p className="fs-4">ZeloPlus授業</p>
-                </Button>
-                <Button className="w-75 m-auto" variant="light">
-                    <span className="fs-6">14:00-15:00</span>
-                    <p className="fs-4">読書</p>
-                </Button>
-                <Button className="w-75 m-auto" variant="light">
-                    <span className="fs-6">16:00-18:00</span>
-                    <p className="fs-4">復習課題</p>
-                </Button>
-                <i className="bi bi-plus-circle"></i>
-            </Stack>
+        <>
+            <BrowserRouter>
+                <div className="l_SidePanel">
+                    <div className="SidePanel_header d-flex justify-content-around pt-5">
+                        <div>
+                            <div className="d-flex fs-4 gap-2">
+                                <p>5/8</p>
+                                <i className="bi bi-cloud"></i>
+                            </div>
+                            <span>WednesDay</span>
+                        </div>
+                        <div>
+                            <div className="fs-4">
+                                <i className="bi bi-person-circle"></i>
+                            </div>
+                            <div className="mt-3">Account</div>
+                        </div>
+                    </div>
 
-            <div className="d-flex justify-content-center mt-5">
-                <div>・</div>
-                <div>・ </div>
-            </div>
-        </div>
+                    <Routes>
+                        <Route path="/" element={<Event />} />
+                        <Route path="/todo" element={<Todo />} />
+                    </Routes>
+
+                    <SidePanelModal />
+                    <div className="d-flex justify-content-center mt-5">
+                        <Link to="/">
+                            <i className="bi bi-dot fs-2"></i>
+                        </Link>
+                        <Link to="/Todo">
+                            <i className="bi bi-dot fs-2"></i>
+                        </Link>
+                    </div>
+                </div>
+            </BrowserRouter>
+        </>
     );
 };
 export default CalendarSidePanel;
