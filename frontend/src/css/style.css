@@ -95,3 +95,8 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
+
+.sidepanel_body_container {
+    height: 26rem;
+    overflow-x: auto;
+}

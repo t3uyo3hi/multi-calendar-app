@@ -14,6 +14,15 @@ const Todo = () => {
                 <Button className="w-75 m-auto" variant="light">
                     <p className="">復習課題</p>
                 </Button>
+                <Button className="w-75 m-auto" variant="light">
+                    <p className="">復習課題</p>
+                </Button>
+                <Button className="w-75 m-auto" variant="light">
+                    <p className="">復習課題</p>
+                </Button>
+                <Button className="w-75 m-auto" variant="light">
+                    <p className="">復習課題</p>
+                </Button>
             </Stack>
         </>
     );

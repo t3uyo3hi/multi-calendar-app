@@ -16,17 +16,20 @@ const CalendarSidePanel = () => {
                     <Account />
                 </div>
                 <div className="mt-5">
-                    <Tab.Container>
-                        <Tab.Content>
-                            <Tab.Pane eventKey="Event">
-                                <Event />
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="Todo">
-                                <Todo />
-                            </Tab.Pane>
-                        </Tab.Content>
+                    <Tab.Container defaultActiveKey="Event">
+                        <div className="sidepanel_body_container">
+                            <Tab.Content>
+                                <Tab.Pane eventKey="Event">
+                                    <Event />
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="Todo">
+                                    <Todo />
+                                </Tab.Pane>
+                            </Tab.Content>
+                        </div>
                         <SidePanelModal />
-                        <Nav className="mt-5 justify-content-center gap-5" variant="underline" defaultActiveKey="Event">
+                        <hr />
+                        <Nav className="mt-3 justify-content-center gap-5" variant="underline" defaultActiveKey="Event">
                             <Nav.Item>
                                 <Nav.Link eventKey="Event">
                                     <i className="fs-3 bi bi-calendar-event"></i>
@@ -39,11 +42,6 @@ const CalendarSidePanel = () => {
                             </Nav.Item>
                         </Nav>
                     </Tab.Container>
-                </div>
-
-                <div className="d-flex justify-content-center mt-5">
-                    <i className="bi bi-dot fs-2"></i>
-                    <i className="bi bi-dot fs-2"></i>
                 </div>
             </div>
         </>
