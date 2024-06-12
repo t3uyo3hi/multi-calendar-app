@@ -14,13 +14,15 @@ const App = () => {
 
   return (
     <div className="container text-center">
-      <div className="calendar row">
-        <div className="calendar_base shadow">
-          <CalendarHeader date={date} setDate={setDate} />
-          <DayOfWeekHead />
-          <CalendarBody date={date} />
+      <div className="calendar row shadow">
+        <div className="d-flex flex-row calendar_base">
+          <div>
+            <CalendarHeader date={date} setDate={setDate} />
+            <DayOfWeekHead />
+            <CalendarBody date={date} />
+          </div>
 
-          <div className="col-3 l_SidePanel shadow">
+          <div className="l_SidePanel col-3">
             <SidePanel />
           </div>
         </div>
