@@ -33,14 +33,16 @@ body {
 .calendar {
   display: flex;
   flex-direction: column;
+  border-radius: 25px 0px 0px 25px;
 }
 
 .calendar_base {
   color: #262d33;
   background-color: #fff;
-  border-radius: 25px 0px 0px 25px;
+
   display: flex;
   flex-direction: column;
+  border-radius: 25px 0px 0px 25px;
 }
 
 .calendar_table-head {
