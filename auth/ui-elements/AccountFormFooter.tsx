@@ -5,6 +5,7 @@ type AccountFormFooterProps = {
   text: string;
   icon: React.ReactNode;
   secondaryText: string;
+  secondaryIcon?: React.ReactNode; // ここを追加
   onClick: () => void;
 };
 
@@ -21,6 +22,7 @@ const AccountFormFooter: React.FC<AccountFormFooterProps> = ({
         {icon} {text}
       </button>
       <div>{secondaryText}</div>
+      <div>{secondaryIcon}</div>
     </div>
   );
 };
