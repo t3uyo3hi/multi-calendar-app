@@ -6,12 +6,12 @@ import { Box } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-import { AccountFormFooter } from "../../../../components/ui-elements/AccountFormFooter";
-import AccountTextField from "../../../../components/ui-elements/AccountTextField";
-import { supabase } from "utils/supabase.ts";
-import { loginInputSchema } from "../../types/LoginFormInput";
+import AccountFormFooter from "./ui-elements/AccountFormFooter";
+import AccountTextField from "./ui-elements/AccountTextField";
+import { supabase } from "./utils/supabase.ts";
+import { loginInputSchema } from "./types/LoginFormInput";
 
-import type { LoginFormInput } from "../../types/LoginFormInput";
+import type { LoginFormInput } from "./types/LoginFormInput";
 import type { SubmitHandler } from "react-hook-form";
 
 export const LoginForm = () => {

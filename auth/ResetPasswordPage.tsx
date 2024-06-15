@@ -3,10 +3,10 @@ import { Box, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { useIsLocationState } from "../../../hooks/useIsLocationState";
-import { loginInputSchema } from "../../login/types/LoginFormInput";
+import { useIsLocationState } from "./hooks/useIsLocationState";
+import { loginInputSchema } from "./types/LoginFormInput";
 
-import { ResetPasswordForm } from "./ResetPasswordForm";
+import { ResetPasswordForm } from "./types/ResetPasswordForm";
 
 export const ResetPasswordPage = () => {
   useIsLocationState("/login");

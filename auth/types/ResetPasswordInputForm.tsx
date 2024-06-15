@@ -5,12 +5,12 @@ import { Box } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-import { AccountFormFooter } from "../../../../components/ui-elements/AccountFormFooter";
-import AccountTextField from "../../../../components/ui-elements/AccountTextField";
-import { supabase } from "../../../../utils/supabase";
-import { resetPasswordFormInputSchema } from "../../types/ResetPasswordIFormInput";
+import AccountFormFooter from "../ui-elements/AccountFormFooter";
+import AccountTextField from "../ui-elements/AccountTextField";
+import { supabase } from "../utils/supabase";
+import { resetPasswordFormInputSchema } from "./ResetPasswordInputForm";
 
-import type { ResetPasswordFormInput } from "../../types/ResetPasswordIFormInput";
+import type { ResetPasswordForm } from "./ResetPasswordForm";
 import type { SubmitHandler } from "react-hook-form";
 
 export const ResetPasswordInputForm = () => {
