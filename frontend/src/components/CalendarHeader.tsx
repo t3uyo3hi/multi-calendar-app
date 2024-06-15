@@ -1,8 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-=======
 import { Container, Button } from "react-bootstrap";
->>>>>>> origin/main
 
 interface CalendarHeaderProps {
   date: Date;
