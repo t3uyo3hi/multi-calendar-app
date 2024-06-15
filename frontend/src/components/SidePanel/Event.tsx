@@ -1,19 +1,25 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import React from "react";
+import { Stack, Button } from "react-bootstrap";
 
-export default CalendarHeader;
-=======
-import React from "react";
+const Event = () => {
+    return (
+        <>
+            <Stack className="mt-5 mb-5" gap={3}>
+                <Button className="w-75 m-auto" variant="light">
+                    <span className="">12:00-14:00</span>
+                    <p className="">ZeloPlus授業</p>
+                </Button>
+                <Button className="w-75 m-auto" variant="light">
+                    <span className="">14:00-15:00</span>
+                    <p className="fs-4">読書</p>
+                </Button>
+                <Button className="w-75 m-auto" variant="light">
+                    <span className="">16:00-18:00</span>
+                    <p className="">復習課題</p>
+                </Button>
+            </Stack>
+        </>
+    );
+};
 
-export default CalendarHeader;
->>>>>>> be402acda0e89e6ce8e19ac8f1216bc50e2e17ba
-=======
-import React from "react";
-
-export default CalendarHeader;
-<<<<<<< HEAD
->>>>>>> f1910887ed8a2f37dcb557214431090d13583ee4
-=======
->>>>>>> f263a63 (first commit)
->>>>>>> be402acda0e89e6ce8e19ac8f1216bc50e2e17ba
+export default Event;
