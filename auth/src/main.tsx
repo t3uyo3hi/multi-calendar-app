@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { AuthProvider } from "@supabase/auth-ui-react";
+import { Auth } from "@supabase/auth-ui-react";
 import { supabase } from "../utils/supabase";
 
 ReactDOM.render(
-  <AuthProvider supabaseClient={supabase}>
+  <Auth.UserContextProvider supabaseClient={supabase}>
     <App />
-  </AuthProvider>,
+  </Auth.UserContextProvider>,
   document.getElementById("root")
 );
