@@ -15,7 +15,8 @@ import { signUpInputSchema } from "./../types/SignUpFormInput";
 import type { SignUpFormInput } from "./../types/SignUpFormInput";
 import type { SubmitHandler } from "react-hook-form";
 
-export const LoginForm = () => {
+const SignUpForm = () => {
+  // 修正
   const navigate = useNavigate();
 
   const {
@@ -100,3 +101,5 @@ export const LoginForm = () => {
     </Box>
   );
 };
+
+export default SignUpForm; // 修正
