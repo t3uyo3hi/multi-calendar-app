@@ -1,16 +1,11 @@
 import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import { Box } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
-import { AccountFormFooter } from "../ui-elements/AccountFormFooter";
-import AccountTextField from "../ui-elements/AccountTextField";
 import { supabase } from "./../utils/supabaseClient";
 import { loginInputSchema } from "./../types/LoginFormInput";
+import AccountFormFooter from "../ui-elements/AccountFormFooter";
+import AccountTextField from "../ui-elements/AccountTextField";
 
 import type { LoginFormInput } from "./../types/LoginFormInput";
 import type { SubmitHandler } from "react-hook-form";
@@ -55,14 +50,8 @@ export const LoginForm = () => {
   };
 
   return (
-    <Box
-      component="form"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "32px",
-        width: "100%",
-      }}
+    <form
+      className="d-flex flex-column gap-3 w-100"
       onSubmit={handleSubmit(onSubmit)}
     >
       <AccountTextField
@@ -73,7 +62,7 @@ export const LoginForm = () => {
         type="text"
         label="メールアドレス"
         secondaryLabel="メールアドレスを入力..."
-        icon={<PersonOutlineOutlinedIcon />}
+        icon={<i className="bi bi-person"></i>}
         disabled={isSubmitting}
       />
       <AccountTextField
@@ -84,16 +73,16 @@ export const LoginForm = () => {
         error={errors.password?.message}
         label="パスワード"
         secondaryLabel="パスワードを入力..."
-        icon={<LockOutlinedIcon />}
+        icon={<i className="bi bi-lock"></i>}
         disabled={isSubmitting}
       />
       <AccountFormFooter
         disabled={isSubmitting}
         text="ログイン"
-        icon={<ArrowForwardIcon />}
+        icon={<i className="bi bi-arrow-right"></i>}
         secondaryText="パスワードを忘れた場合"
         onClick={handleClick}
       />
-    </Box>
+    </form>
   );
 };

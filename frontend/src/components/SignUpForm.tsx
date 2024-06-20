@@ -1,22 +1,16 @@
 import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import { Box } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
-import { AccountFormFooter } from "../ui-elements/AccountFormFooter";
-import AccountTextField from "../ui-elements/AccountTextField";
 import { supabase } from "./../utils/supabaseClient";
 import { signUpInputSchema } from "./../types/SignUpFormInput";
+import AccountFormFooter from "../ui-elements/AccountFormFooter";
+import AccountTextField from "../ui-elements/AccountTextField";
 
 import type { SignUpFormInput } from "./../types/SignUpFormInput";
 import type { SubmitHandler } from "react-hook-form";
 
 const SignUpForm = () => {
-  // 修正
   const navigate = useNavigate();
 
   const {
@@ -59,14 +53,8 @@ const SignUpForm = () => {
   };
 
   return (
-    <Box
-      component="form"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "32px",
-        width: "100%",
-      }}
+    <form
+      className="d-flex flex-column gap-3 w-100"
       onSubmit={handleSubmit(onSubmit)}
     >
       <AccountTextField
@@ -77,7 +65,7 @@ const SignUpForm = () => {
         type="text"
         label="メールアドレス"
         secondaryLabel="メールアドレスを入力..."
-        icon={<PersonOutlineOutlinedIcon />}
+        icon={<i className="bi bi-person"></i>}
         disabled={isSubmitting}
       />
       <AccountTextField
@@ -88,18 +76,18 @@ const SignUpForm = () => {
         error={errors.password?.message}
         label="パスワード"
         secondaryLabel="パスワードを入力..."
-        icon={<LockOutlinedIcon />}
+        icon={<i className="bi bi-lock"></i>}
         disabled={isSubmitting}
       />
       <AccountFormFooter
         disabled={isSubmitting}
         text="サインアップ"
-        icon={<ArrowForwardIcon />}
+        icon={<i className="bi bi-arrow-right"></i>}
         secondaryText="アカウントを持っている場合"
         onClick={handleClick}
       />
-    </Box>
+    </form>
   );
 };
 
-export default SignUpForm; // 修正
+export default SignUpForm;

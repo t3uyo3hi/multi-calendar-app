@@ -1,13 +1,9 @@
 import React from "react";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import SendIcon from "@mui/icons-material/Send";
-import { Box } from "@mui/material";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
-import { AccountFormFooter } from "./../ui-elements/AccountFormFooter";
+import AccountFormFooter from "./../ui-elements/AccountFormFooter";
 import AccountTextField from "./../ui-elements/AccountTextField";
 import { supabase } from "../utils/supabaseClient";
 
@@ -61,14 +57,8 @@ export const ResetPasswordForm: React.FC<Props> = ({
   };
 
   return (
-    <Box
-      component="form"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "32px",
-        width: "100%",
-      }}
+    <form
+      className="d-flex flex-column gap-3 w-100"
       onSubmit={handleSubmit(onSubmit)}
     >
       <AccountTextField
@@ -79,17 +69,17 @@ export const ResetPasswordForm: React.FC<Props> = ({
         type="text"
         label="メールアドレス"
         secondaryLabel="メールアドレスを入力..."
-        icon={<PersonOutlineOutlinedIcon />}
+        icon={<i className="bi bi-person"></i>}
         disabled={isSubmitting}
       />
       <AccountFormFooter
         disabled={isSubmitting}
         text="パスワードを再設定する"
         secondaryText="ログイン画面に戻る"
-        icon={<SendIcon />}
-        secondaryIcon={<ArrowBackIcon />}
+        icon={<i className="bi bi-send"></i>}
+        secondaryIcon={<i className="bi bi-arrow-left"></i>}
         onClick={goBack}
       />
-    </Box>
+    </form>
   );
 };

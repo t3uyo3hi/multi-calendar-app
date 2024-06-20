@@ -1,11 +1,7 @@
 import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import DoneIcon from "@mui/icons-material/Done";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { Box } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
 import AccountFormFooter from "../ui-elements/AccountFormFooter";
 import AccountTextField from "../ui-elements/AccountTextField";
 import { supabase } from "../utils/supabaseClient";
@@ -55,14 +51,8 @@ const ResetPasswordInputForm: React.FC = () => {
   };
 
   return (
-    <Box
-      component="form"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "32px",
-        width: "100%",
-      }}
+    <form
+      className="d-flex flex-column gap-3 w-100"
       onSubmit={handleSubmit(onSubmit)}
     >
       <AccountTextField
@@ -73,7 +63,7 @@ const ResetPasswordInputForm: React.FC = () => {
         type="password"
         label="新規パスワード"
         secondaryLabel="パスワードを入力..."
-        icon={<LockOutlinedIcon />}
+        icon={<i className="bi bi-lock"></i>}
         disabled={isSubmitting}
       />
       <AccountTextField
@@ -84,15 +74,15 @@ const ResetPasswordInputForm: React.FC = () => {
         type="password"
         label="新規パスワード確認"
         secondaryLabel="パスワードをもう一度入力..."
-        icon={<LockOutlinedIcon />}
+        icon={<i className="bi bi-lock"></i>}
         disabled={isSubmitting}
       />
       <AccountFormFooter
         disabled={isSubmitting}
         text="パスワードを設定"
-        icon={<DoneIcon />}
+        icon={<i className="bi bi-check"></i>}
       />
-    </Box>
+    </form>
   );
 };
 

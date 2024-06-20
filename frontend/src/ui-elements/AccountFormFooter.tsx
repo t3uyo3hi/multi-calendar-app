@@ -1,54 +1,44 @@
 import React from "react";
-import { Button, Box, Typography } from "@mui/material";
 
-interface AccountFormFooterProps {
+type AccountFormFooterProps = {
   disabled: boolean;
   text: string;
   icon: React.ReactNode;
   secondaryText?: string;
-  onClick?: () => void;
   secondaryIcon?: React.ReactNode;
-}
+  onClick?: () => void;
+};
 
-export const AccountFormFooter: React.FC<AccountFormFooterProps> = ({
+const AccountFormFooter: React.FC<AccountFormFooterProps> = ({
   disabled,
   text,
   icon,
   secondaryText,
-  onClick,
   secondaryIcon,
+  onClick,
 }) => {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: 2,
-      }}
-    >
-      <Button
+    <div className="d-flex justify-content-between align-items-center">
+      <button
         type="submit"
-        variant="contained"
-        color="primary"
+        className="btn btn-primary d-flex align-items-center"
         disabled={disabled}
-        startIcon={icon}
-        fullWidth
       >
-        {text}
-      </Button>
-      {secondaryText && onClick && (
-        <Box
-          sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+        {icon}
+        <span className="ms-2">{text}</span>
+      </button>
+      {secondaryText && (
+        <button
+          type="button"
+          className="btn btn-link d-flex align-items-center"
           onClick={onClick}
+          disabled={disabled}
         >
-          {secondaryIcon}
-          <Typography variant="body2" color="primary" sx={{ ml: 1 }}>
-            {secondaryText}
-          </Typography>
-        </Box>
+          {secondaryIcon && <span className="me-2">{secondaryIcon}</span>}
+          {secondaryText}
+        </button>
       )}
-    </Box>
+    </div>
   );
 };
 

@@ -1,53 +1,53 @@
 import React from "react";
-import { TextField, InputAdornment } from "@mui/material";
 import { Controller, Control } from "react-hook-form";
 
-interface AccountTextFieldProps {
+type AccountTextFieldProps = {
   id: string;
   name: string;
   control: Control<any>;
+  error?: string;
   type: string;
   label: string;
   secondaryLabel?: string;
-  icon?: React.ReactNode;
-  error?: string;
-  disabled?: boolean;
-}
+  icon: React.ReactNode;
+  disabled: boolean;
+};
 
 const AccountTextField: React.FC<AccountTextFieldProps> = ({
   id,
   name,
   control,
+  error,
   type,
   label,
   secondaryLabel,
   icon,
-  error,
   disabled,
 }) => {
   return (
-    <Controller
-      name={name}
-      control={control}
-      render={({ field }) => (
-        <TextField
-          {...field}
-          id={id}
-          type={type}
-          label={label}
-          placeholder={secondaryLabel}
-          error={!!error}
-          helperText={error}
-          disabled={disabled}
-          fullWidth
-          InputProps={{
-            startAdornment: icon ? (
-              <InputAdornment position="start">{icon}</InputAdornment>
-            ) : null,
-          }}
+    <div className="mb-3">
+      <label htmlFor={id} className="form-label">
+        {label}
+      </label>
+      <div className="input-group">
+        <span className="input-group-text">{icon}</span>
+        <Controller
+          name={name}
+          control={control}
+          render={({ field }) => (
+            <input
+              {...field}
+              type={type}
+              id={id}
+              className={`form-control ${error ? "is-invalid" : ""}`}
+              placeholder={secondaryLabel}
+              disabled={disabled}
+            />
+          )}
         />
-      )}
-    />
+        {error && <div className="invalid-feedback">{error}</div>}
+      </div>
+    </div>
   );
 };
 

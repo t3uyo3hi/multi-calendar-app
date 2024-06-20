@@ -1,11 +1,10 @@
 import { createClient } from "@supabase/supabase-js";
-import type { Database } from "../types/supabase";
 
-const supabaseUrl = process.env.SUPABASE_URL!;
-const supabaseAnonKey = process.env.SUPABASE_KEY!;
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_API_KEY;
 
-if (!supabaseUrl || !supabaseAnonKey) {
+if (!supabaseUrl || !supabaseKey) {
   throw new Error("Supabase URL and API Key must be defined");
 }
 
-export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);
+export const supabase = createClient(supabaseUrl, supabaseKey);

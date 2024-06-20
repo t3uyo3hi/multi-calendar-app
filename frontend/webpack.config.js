@@ -1,7 +1,11 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
-require("dotenv").config(); // これを追加して .env ファイルを読み込みます
+require("dotenv").config(); // .env ファイルを読み込みます
+
+// 環境変数を出力して確認
+console.log("Supabase URL:", process.env.SUPABASE_URL);
+console.log("Supabase Key:", process.env.SUPABASE_API_KEY);
 
 module.exports = {
   mode: "development",
@@ -50,7 +54,9 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       "process.env.SUPABASE_URL": JSON.stringify(process.env.SUPABASE_URL),
-      "process.env.SUPABASE_KEY": JSON.stringify(process.env.SUPABASE_KEY),
+      "process.env.SUPABASE_API_KEY": JSON.stringify(
+        process.env.SUPABASE_API_KEY
+      ),
     }),
   ],
   devServer: {

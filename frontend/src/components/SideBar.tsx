@@ -1,9 +1,6 @@
 import React from "react";
-import { Logout } from "@mui/icons-material";
-import { Button } from "@mui/material";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { supabase } from "../utils/supabaseClient";
 
 const SideBar = () => {
@@ -22,14 +19,12 @@ const SideBar = () => {
   }, [navigate]);
 
   return (
-    <Button
-      color="error"
-      variant="text"
-      startIcon={<Logout />}
+    <button
+      className="btn btn-danger d-flex align-items-center"
       onClick={onLogout}
     >
-      ログアウト
-    </Button>
+      <i className="bi bi-box-arrow-right me-2"></i> ログアウト
+    </button>
   );
 };
 

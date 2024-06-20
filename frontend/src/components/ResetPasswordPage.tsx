@@ -1,6 +1,5 @@
 import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Box, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -27,22 +26,10 @@ export const ResetPasswordPage = () => {
   });
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        gap: "32px",
-        width: "100%",
-      }}
-    >
-      <Typography variant="h4" align="left">
-        パスワード再設定
-      </Typography>
+    <div className="d-flex flex-column align-items-start gap-3 w-100">
+      <h4 className="text-start">パスワード再設定</h4>
       {isSubmitSuccessful ? (
-        <Typography variant="body1">
-          パスワードの再設定URLを送信しました。メールをご確認ください。
-        </Typography>
+        <p>パスワードの再設定URLを送信しました。メールをご確認ください。</p>
       ) : (
         <ResetPasswordForm
           handleSubmit={handleSubmit}
@@ -52,6 +39,6 @@ export const ResetPasswordPage = () => {
           reset={reset}
         />
       )}
-    </Box>
+    </div>
   );
 };
