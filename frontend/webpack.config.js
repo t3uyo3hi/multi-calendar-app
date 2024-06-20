@@ -63,10 +63,10 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       "process.env.REACT_APP_SUPABASE_URL": JSON.stringify(
-        env.REACT_APP_SUPABASE_URL
+        process.env.REACT_APP_SUPABASE_URL
       ),
       "process.env.REACT_APP_SUPABASE_API_KEY": JSON.stringify(
-        env.REACT_APP_SUPABASE_API_KEY
+        process.env.REACT_APP_SUPABASE_API_KEY
       ),
     }),
   ],
