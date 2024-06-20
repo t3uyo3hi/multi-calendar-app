@@ -1,11 +1,16 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
-require("dotenv").config(); // .env ファイルを読み込みます
+const dotenv = require("dotenv");
 
-// 環境変数を出力して確認
-console.log("Supabase URL:", process.env.SUPABASE_URL);
-console.log("Supabase Key:", process.env.SUPABASE_API_KEY);
+// .envファイルを読み込む
+const env = dotenv.config().parsed;
+
+// 環境変数をオブジェクトに変換
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev;
+}, {});
 
 module.exports = {
   mode: "development",
@@ -51,11 +56,17 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src/index.html"),
+      templateParameters: {
+        REACT_APP_SUPABASE_URL: env.REACT_APP_SUPABASE_URL,
+        REACT_APP_SUPABASE_API_KEY: env.REACT_APP_SUPABASE_API_KEY,
+      },
     }),
     new webpack.DefinePlugin({
-      "process.env.SUPABASE_URL": JSON.stringify(process.env.SUPABASE_URL),
-      "process.env.SUPABASE_API_KEY": JSON.stringify(
-        process.env.SUPABASE_API_KEY
+      "process.env.REACT_APP_SUPABASE_URL": JSON.stringify(
+        env.REACT_APP_SUPABASE_URL
+      ),
+      "process.env.REACT_APP_SUPABASE_API_KEY": JSON.stringify(
+        env.REACT_APP_SUPABASE_API_KEY
       ),
     }),
   ],
