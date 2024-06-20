@@ -1,52 +1,63 @@
+const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+require("dotenv").config(); // これを追加して .env ファイルを読み込みます
 
 module.exports = {
-    mode: "development",
-    entry: {
-        main: __dirname + "/src/main.tsx",
-    },
-    output: {
-        path: __dirname + "/dist",
-        filename: "[name].js",
-        publicPath: "/",
-    },
-    module: {
-        rules: [
-            {
-                test: [/\.ts$/, /\.tsx$/],
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: "babel-loader",
-                        options: {
-                            presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
-                        },
-                    },
-                    {
-                        loader: "ts-loader",
-                    },
-                ],
+  mode: "development",
+  entry: {
+    main: path.resolve(__dirname, "src/main.tsx"),
+  },
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js",
+    publicPath: "/",
+  },
+  module: {
+    rules: [
+      {
+        test: [/\.ts$/, /\.tsx$/],
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [
+                "@babel/preset-env",
+                "@babel/preset-react",
+                "@babel/preset-typescript",
+              ],
             },
-            {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"],
-            },
+          },
+          {
+            loader: "ts-loader",
+          },
         ],
-    },
-    resolve: {
-        modules: [__dirname + "/node_modules"],
-        extensions: [".ts", ".tsx", ".js"],
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: __dirname + "/src/index.html",
-        }),
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
     ],
-    devServer: {
-        static: {
-            directory: __dirname + "/dist",
-        },
-        port: 8080,
-        historyApiFallback: true,
+  },
+  resolve: {
+    modules: [path.resolve(__dirname, "node_modules")],
+    extensions: [".ts", ".tsx", ".js"],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "src/index.html"),
+    }),
+    new webpack.DefinePlugin({
+      "process.env.SUPABASE_URL": JSON.stringify(process.env.SUPABASE_URL),
+      "process.env.SUPABASE_KEY": JSON.stringify(process.env.SUPABASE_KEY),
+    }),
+  ],
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, "src"),
     },
+    port: 8080,
+    historyApiFallback: true,
+  },
 };

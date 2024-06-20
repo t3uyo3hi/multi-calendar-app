@@ -43,12 +43,14 @@ const App = () => {
           </div>
         </div>
       </div>
-      <div className="auth-nav">
-        <button onClick={() => setAuthPage("login")}>ログイン</button>
-        <button onClick={() => setAuthPage("reset")}>パスワードリセット</button>
-        <button onClick={() => setAuthPage("signup")}>サインアップ</button>
+      <div className="auth-form mt-3">
+        {renderAuthPage()}
+        <div>
+          <button onClick={() => setAuthPage("login")}>Login</button>
+          <button onClick={() => setAuthPage("reset")}>Reset Password</button>
+          <button onClick={() => setAuthPage("signup")}>Sign Up</button>
+        </div>
       </div>
-      <div className="auth-form">{renderAuthPage()}</div>
     </div>
   );
 };
