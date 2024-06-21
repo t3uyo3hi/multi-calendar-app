@@ -3,9 +3,9 @@ import CalendarHeader from "./components/CalendarHeader";
 import DayOfWeekHead from "./components/DayOfWeekHead";
 import CalendarBody from "./components/CalendarBody";
 import SidePanel from "./components/SidePanel/SidePanel";
-import { LoginForm } from "./components/LoginForm"; // パスを修正
-import { ResetPasswordPage } from "./components/ResetPasswordPage"; // パスを修正
-import SignUpForm from "./components/SignUpForm"; // パスを修正
+import { LoginForm } from "./components/LoginForm";
+import { ResetPasswordPage } from "./components/ResetPasswordPage";
+import SignUpForm from "./components/SignUpForm";
 
 import "./css/reset.css";
 import "bootstrap/dist/css/bootstrap.min.css";
