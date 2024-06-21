@@ -13,7 +13,7 @@ interface WeatherData {
 }
 
 const cloud = () => {
-  const [city, setCity] = useState<string>("");
+  const [city, setCity] = useState<string>("tokyo");
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [PopUpVisible, setPopUpVisible] = useState<boolean>(false);
 
