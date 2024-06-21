@@ -14,20 +14,20 @@ import "./css/style.css";
 
 const App = () => {
   const [date, setDate] = useState(new Date());
-  const [authPage, setAuthPage] = useState("login");
+  // const [authPage, setAuthPage] = useState("login");
 
-  const renderAuthPage = () => {
-    switch (authPage) {
-      case "login":
-        return <LoginForm />;
-      case "reset":
-        return <ResetPasswordPage />;
-      case "signup":
-        return <SignUpForm />;
-      default:
-        return <LoginForm />;
-    }
-  };
+  // const renderAuthPage = () => {
+  //   switch (authPage) {
+  //     case "login":
+  //       return <LoginForm />;
+  //     case "reset":
+  //       return <ResetPasswordPage />;
+  //     case "signup":
+  //       return <SignUpForm />;
+  //     default:
+  //       return <LoginForm />;
+  //   }
+  // };
 
   return (
     <div className="container text-center">
@@ -40,17 +40,21 @@ const App = () => {
           </div>
           <div className="l_SidePanel col-3">
             <SidePanel />
+            <LoginForm />
+            <ResetPasswordPage />
+            <SignUpForm />
           </div>
         </div>
       </div>
-      <div className="auth-form mt-3">
+
+      {/* <div className="auth-form mt-3">
         {renderAuthPage()}
         <div>
           <button onClick={() => setAuthPage("login")}>Login</button>
           <button onClick={() => setAuthPage("reset")}>Reset Password</button>
           <button onClick={() => setAuthPage("signup")}>Sign Up</button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
