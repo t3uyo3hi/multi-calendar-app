@@ -6,7 +6,6 @@ import Account from "./Account";
 import Date from "./Date";
 import Event from "./Event";
 import Todo from "./Todo";
-import Weather from "./Weather";
 
 const CalendarSidePanel = () => {
   return (
@@ -15,9 +14,6 @@ const CalendarSidePanel = () => {
         <div className="SidePanel_header d-flex justify-content-around pt-5">
           <Date />
           <Account />
-        </div>
-        <div>
-          <Weather />
         </div>
 
         <div className="mt-5">

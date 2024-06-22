@@ -106,18 +106,8 @@ body {
 /* ---------- Cloud ---------- */
 
 .weather-icon {
-  width: 100px;
-  height: 100px;
-}
-
-.PopUp {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 20px 100px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 50px;
+  height: 50px;
 }
 
 .form {
@@ -127,37 +117,4 @@ body {
 
 input:focus {
   outline: none;
-}
-
-.input {
-  width: 50px;
-}
-
-.weatherbtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70px;
-  height: 25px;
-  margin-left: 90%;
-  border: 2px solid #27acd9;
-  background: #27acd9;
-  color: #fff;
-  transition: 0.5s;
-  font-size: 12px;
-}
-
-.weatherbtn:hover {
-  color: #27acd9;
-  background: #fff;
-}
-
-.degree {
-  display: flex;
-  align-items: center;
-}
-
-.degree1 {
-  font-size: 30px;
-  padding-top: 10%;
 }
