@@ -83,7 +83,7 @@ const SignUpForm = () => {
         disabled={isSubmitting}
         text="サインアップ"
         icon={<i className="bi bi-arrow-right"></i>}
-        secondaryText="アカウントを持っている場合"
+        // secondaryText="アカウントを持っている場合"
         onClick={handleClick}
       />
     </form>

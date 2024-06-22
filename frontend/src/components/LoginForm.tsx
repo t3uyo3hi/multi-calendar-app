@@ -80,7 +80,7 @@ export const LoginForm = () => {
         disabled={isSubmitting}
         text="ログイン"
         icon={<i className="bi bi-arrow-right"></i>}
-        secondaryText="パスワードを忘れた場合"
+        // secondaryText="パスワードを忘れた場合"
         onClick={handleClick}
       />
     </form>
