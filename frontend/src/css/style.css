@@ -5,56 +5,73 @@
   --gray-color: #d1d1d1;
 }
 
+#root {
+  height: 100%;
+}
+
 /* ---------- base ---------- */
+html {
+  height: 100%;
+}
+
 body {
   color: var(--black-color);
   font-size: 16px;
   font-family: "Open Sans", sans-serif;
   line-height: 1.75;
+  height: 100%;
+  margin: 0;
 }
 
 /* ---------- container ---------- */
 
-.container {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.container, .row {
+  height: 100%;
 }
 
 /* ---------- calendar ---------- */
-/* .l_header {
-} */
+.l_header {
+  width: 100%;
+}
 
 .l_header-title {
   font-size: 40px;
 }
 
 .calendar {
-  display: flex;
-  flex-direction: column;
-  border-radius: 25px 0px 0px 25px;
+  border-radius: 25px 25px 25px 25px;
 }
 
 .calendar_base {
   color: #262d33;
   background-color: #fff;
+  border-radius: 25px 25px 25px 25px;
+}
 
+.calendar_panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar_wrap {
+  width: 70%;
+  height: 80%;
   display: flex;
   flex-direction: column;
-  border-radius: 25px 0px 0px 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar_table {
+  width: 100%;
 }
 
 .calendar_table-head {
   color: #6e7781;
-  width: 100%;
   display: flex;
   justify-content: space-between;
-}
-
-.calendar_table-row {
-  display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
 
 .calendar_table-data {
@@ -62,15 +79,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.calendar_date {
-  width: 60px;
   height: 60px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .calendar_table-data.is-disabled {
@@ -89,7 +98,6 @@ body {
 
 /* ---------- SidePanel ---------- */
 .l_SidePanel {
-  font-size: 12px;
   background-color: var(--primary-color);
   border-radius: 0px 25px 25px 0px;
   height: 100hv;
@@ -99,6 +107,30 @@ body {
 }
 
 .sidepanel_body_container {
-  height: 26rem;
+  height: 24rem;
   overflow-x: auto;
+}
+
+.sidepanel_event {
+  display: block;
+  height: 68px;
+  background-color: #7FAFCF !important;
+  border-color: #7FAFCF !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidepanel_event-time {
+  display: block;
+  width: 100%;
+  color: #FFF;
+  text-align: start;
+}
+
+.sidepanel_event-ttl {
+  margin: 0;
+  color: #FFF;
+  font-weight: bold;
+  text-align: start;
 }

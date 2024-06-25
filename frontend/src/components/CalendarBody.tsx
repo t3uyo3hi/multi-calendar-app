@@ -23,7 +23,7 @@ const CalendarBody = (props: CalendarBodyProps) => {
                         if (week === 0 && day < thisFirstDayOfWeek) {
                             const num = lastDayOfLastMonth - thisFirstDayOfWeek + day + 1;
                             return (
-                                <div className="calendar_table-data p-4 is-disabled" key={day}>
+                                <div className="calendar_table-data is-disabled" key={day}>
                                     <span className="calendar_date">{num}</span>
                                 </div>
                             );
@@ -31,7 +31,7 @@ const CalendarBody = (props: CalendarBodyProps) => {
                             const num = dayCount - thisLastDay;
                             dayCount++;
                             return (
-                                <div className="calendar_table-data p-4 is-disabled" key={day}>
+                                <div className="calendar_table-data is-disabled" key={day}>
                                     <span className="calendar_date">{num}</span>
                                 </div>
                             );
@@ -43,7 +43,7 @@ const CalendarBody = (props: CalendarBodyProps) => {
                             const num = dayCount;
                             dayCount++;
                             return (
-                                <div className="calendar_table-data p-4 " key={day}>
+                                <div className="calendar_table-data " key={day}>
                                     <span className="calendar_date is_today">{num}</span>
                                 </div>
                             );
@@ -51,7 +51,7 @@ const CalendarBody = (props: CalendarBodyProps) => {
                             const num = dayCount;
                             dayCount++;
                             return (
-                                <div className="calendar_table-data p-4" key={day}>
+                                <div className="calendar_table-data" key={day}>
                                     <span className="calendar_date">{num}</span>
                                 </div>
                             );

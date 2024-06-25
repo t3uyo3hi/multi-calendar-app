@@ -4,8 +4,8 @@ import AccountName from "./AccountName";
 const Account = () => {
   return (
     <div>
-      <div className="fs-4">
-        <i className="bi bi-person-circle"></i>
+      <div>
+        <i className="fs-4 bi bi-person-circle"></i>
       </div>
       <div className="mt-3">
         <AccountName />

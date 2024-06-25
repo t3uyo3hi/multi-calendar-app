@@ -3,11 +3,11 @@ import React from "react";
 const cloud = () => {
     return (
         <div>
-            <div className="d-flex fs-4 gap-2">
+            <div className="d-flex fs-3 gap-4">
                 <p>5/8</p>
                 <i className="bi bi-cloud"></i>
             </div>
-            <span>WednesDay</span>
+            <span className="fs-5">WednesDay</span>
         </div>
     );
 };
