@@ -6,6 +6,7 @@ import LoginModal from "./LoginModal";
 import Cloud from "./Cloud";
 import Event from "./Event";
 import Todo from "./Todo";
+import AccountName from "./AccountName";
 
 const CalendarSidePanel = () => {
   return (
@@ -14,6 +15,7 @@ const CalendarSidePanel = () => {
         <div className="SidePanel_header d-flex justify-content-around pt-5 position-relative">
           <Cloud />
           <LoginModal />
+          <AccountName />
         </div>
         <div className="mt-5">
           <Tab.Container defaultActiveKey="Event">
