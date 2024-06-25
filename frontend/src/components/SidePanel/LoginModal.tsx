@@ -3,9 +3,12 @@ import { Nav, Form, Button, Modal } from "react-bootstrap";
 
 import { useSignUpForm } from "./../SignUpForm";
 import { useLoginForm } from "./../LoginForm";
+import { useLogout } from "./../LogoutTab";
 
 const LoginModal: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"login" | "signup">("login");
+  const [activeTab, setActiveTab] = useState<"login" | "signup" | "logout">(
+    "login"
+  );
   const [rememberMe, setRememberMe] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -22,7 +25,7 @@ const LoginModal: React.FC = () => {
     errors: loginErrors,
   } = useLoginForm();
 
-  const handleTabChange = (tab: "login" | "signup") => {
+  const handleTabChange = (tab: "login" | "signup" | "logout") => {
     setActiveTab(tab);
   };
 
@@ -42,6 +45,8 @@ const LoginModal: React.FC = () => {
     margin: "5px",
   };
 
+  const handleLogout = useLogout(); // ログアウト関数を使用
+
   return (
     <div>
       <Button
@@ -56,11 +61,14 @@ const LoginModal: React.FC = () => {
         <Nav
           variant="tabs"
           activeKey={activeTab}
-          onSelect={(key) => handleTabChange(key as "login" | "signup")}
+          onSelect={(key) =>
+            handleTabChange(key as "login" | "signup" | "logout")
+          }
           className="mb-3"
         >
           <Nav.Link eventKey="login">ログイン</Nav.Link>
           <Nav.Link eventKey="signup">サインアップ</Nav.Link>
+          <Nav.Link eventKey="logout">ログアウト</Nav.Link>
         </Nav>
         <Modal.Body>
           {activeTab === "login" ? (
@@ -123,7 +131,7 @@ const LoginModal: React.FC = () => {
                 </div>
               </Form>
             </div>
-          ) : (
+          ) : activeTab === "signup" ? (
             <div>
               <Form className="p-4" onSubmit={handleSignUpSubmit}>
                 <Form.Group controlId="formBasicUsername">
@@ -199,6 +207,31 @@ const LoginModal: React.FC = () => {
                   </Button>
                 </div>
               </Form>
+            </div>
+          ) : (
+            <div>
+              <p>ログアウトしますか？</p>
+              <div className="d-flex justify-content-end mt-3">
+                <Button
+                  variant="secondary"
+                  onClick={handleModalClose}
+                  className="mr-3"
+                  style={buttonStyle}
+                >
+                  キャンセル
+                </Button>
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    handleLogout();
+                    handleModalClose();
+                  }}
+                  className="ml-3"
+                  style={buttonStyle}
+                >
+                  ログアウト
+                </Button>
+              </div>
             </div>
           )}
         </Modal.Body>

@@ -17,6 +17,7 @@ type User = {
 export const useSignUpForm = () => {
   const navigate = useNavigate();
   const [error, setError] = useState<string | null>(null);
+  const [isEmailSent, setIsEmailSent] = useState(false);
 
   const {
     handleSubmit,
@@ -60,8 +61,16 @@ export const useSignUpForm = () => {
 
       postMessage(`User ${userData.name} successfully created!`);
 
-      setError(null);
-      navigate("/");
+      // メール送信成功のフラグを立てる
+      setIsEmailSent(true);
+
+      // ユーザーに通知
+      alert(
+        "登録確認メールを送信しました。メールを確認して登録を完了してください。"
+      );
+
+      // 確認ページへリダイレクト
+      navigate("/email-confirmation", { state: { email } });
     } catch (err) {
       if (err instanceof Error) {
         if (err.message.includes("Email rate limit exceeded")) {
@@ -88,6 +97,7 @@ export const useSignUpForm = () => {
     errors,
     error,
     onmessage,
+    isEmailSent,
   };
 };
 
