@@ -5,12 +5,12 @@
   --gray-color: #d1d1d1;
 }
 
-#root {
+/* ---------- base ---------- */
+html {
   height: 100%;
 }
 
-/* ---------- base ---------- */
-html {
+#root {
   height: 100%;
 }
 
@@ -25,53 +25,14 @@ body {
 
 /* ---------- container ---------- */
 
-.container, .row {
-  height: 100%;
-}
 
 /* ---------- calendar ---------- */
-.l_header {
-  width: 100%;
-}
-
-.l_header-title {
-  font-size: 40px;
-}
-
-.calendar {
-  border-radius: 25px 25px 25px 25px;
-}
-
 .calendar_base {
   color: #262d33;
-  background-color: #fff;
-  border-radius: 25px 25px 25px 25px;
-}
-
-.calendar_panel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.calendar_wrap {
-  width: 70%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.calendar_table {
-  width: 100%;
 }
 
 .calendar_table-head {
   color: #6e7781;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .calendar_table-data {
@@ -82,28 +43,16 @@ body {
   height: 60px;
 }
 
-.calendar_table-data.is-disabled {
-  color: #fff;
-}
-
 .is_today {
   background-color: var(--gray-color);
   width: 60px;
   height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
 }
 
 /* ---------- SidePanel ---------- */
 .l_SidePanel {
-  background-color: var(--primary-color);
-  border-radius: 0px 25px 25px 0px;
+  background-color: var(--primary-color); 
   height: 100hv;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .sidepanel_body_container {
