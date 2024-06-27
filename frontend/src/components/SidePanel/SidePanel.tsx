@@ -4,8 +4,11 @@ import Tab from "react-bootstrap/Tab";
 import SidePanelModal from "./CalendarModal";
 import Account from "./Account";
 import Date from "./Date";
+import LoginModal from "./LoginModal";
+import Cloud from "./Cloud";
 import Event from "./Event";
 import Todo from "./Todo";
+import AccountName from "./AccountName";
 
 const CalendarSidePanel = () => {
   return (
@@ -15,7 +18,11 @@ const CalendarSidePanel = () => {
           <Date />
           <Account />
         </div>
-
+        <div className="SidePanel_header d-flex justify-content-around pt-5 position-relative">
+          <Cloud />
+          <LoginModal />
+          <AccountName />
+        </div>
         <div className="mt-5">
           <Tab.Container defaultActiveKey="Event">
             <div className="sidepanel_body_container">
