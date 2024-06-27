@@ -10,7 +10,7 @@ import Todo from "./Todo";
 const CalendarSidePanel = () => {
   return (
     <>
-      <div className="l_SidePanel rounded-end-4d-flex flex-column justify-content-between">
+      <div className="l_SidePanel rounded-end-4 d-flex flex-column justify-content-between">
         <div className="SidePanel_header d-flex justify-content-around pt-5 position-relative">
           <Cloud />
           <LoginModal />

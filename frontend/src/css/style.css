@@ -17,7 +17,7 @@ html {
 body {
   color: var(--black-color);
   font-size: 16px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif  !important;
   line-height: 1.75;
   height: 100%;
   margin: 0;
