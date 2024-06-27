@@ -4,7 +4,7 @@ import WeatherForm from "./WeatherForm";
 import { useState } from "react";
 
 const Date = () => {
-  const [city, setCity] = useState("tokyo");
+  const [city, setCity] = useState<string>("tokyo");
 
   return (
     <div>
