@@ -15,17 +15,22 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <div className="container text-center">
-        <div className="row">
-          <div className="col-12">
-            <div className="calendar row shadow">
-              <div className="d-flex flex-row calendar_base">
-                <div>
-                  <CalendarHeader date={date} setDate={setDate} />
-                  <DayOfWeekHead />
-                  <CalendarBody date={date} />
+      <div className="container p-0 h-100 text-center">
+        <div className="row m-0 h-100">
+          <div className="col-12 p-0">
+            <div className="calendar rounded-4 row m-0 h-100 shadow">
+              <div className="calendar_base d-flex flex-row rounded-4 p-0 bg-white">
+                <div className="calendar_panel col-8 d-flex justify-content-center align-items-center">
+                  <div className="calendar_wrap d-flex flex-column justify-content-center align-items-center w-70 h-80">
+                    <CalendarHeader date={date} setDate={setDate} />
+                    <div className="calendar_table w-100">
+                      <DayOfWeekHead />
+                      <CalendarBody date={date} />
+                    </div>
+                  </div>
                 </div>
-                <div className="l_SidePanel col-3">
+
+                <div className="l_SidePanel rounded-end-4 col-4">
                   <SidePanel />
                 </div>
               </div>

@@ -12,7 +12,7 @@ import AccountName from "./AccountName";
 const CalendarSidePanel = () => {
   return (
     <>
-      <div className="l_SidePanel">
+      <div className="l_SidePanel rounded-end-4 d-flex flex-column justify-content-between">
         <div className="SidePanel_header d-flex justify-content-around pt-5">
           <Date />
         </div>

@@ -35,7 +35,7 @@ const CalendarHeader = (props: CalendarHeaderProps) => {
     };
 
     return (
-        <header className="l_header p-5">
+        <header className="l_header p-5 w-100">
             <Container fluid className="d-flex justify-content-center">
                 <div className="d-flex align-items-center">
                     <Button
@@ -45,8 +45,7 @@ const CalendarHeader = (props: CalendarHeaderProps) => {
                     >
                         <i className="bi bi-chevron-left" />
                     </Button>
-                    <h1
-                        // className="l_header-title mb-0 fs-1 fw-bold text-black text-center"
+                    <h1 className="l_header-title mb-0 fs-1 fw-bold text-black text-center"
                         id="js_calendar-header"
                     >
                         {months[thisMonth]} {thisYear}

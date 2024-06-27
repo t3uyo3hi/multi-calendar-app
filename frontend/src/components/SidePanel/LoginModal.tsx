@@ -54,7 +54,7 @@ const LoginModal: React.FC = () => {
         onClick={handleModalOpen}
         className="position-absolute top-0 end-0 m-5 p-0 text-dark"
       >
-        <i className="bi bi-person-circle fs-4"></i>
+        <i className="bi bi-person-circle fs-2"></i>
       </Button>
 
       <Modal show={showModal} onHide={handleModalClose} centered>
