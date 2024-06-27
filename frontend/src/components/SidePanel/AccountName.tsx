@@ -34,7 +34,7 @@ const AccountName = () => {
   }, []);
 
   return (
-    <div style={{ marginTop: "3.35rem" }}>
+    <div style={{ marginTop: "3rem" }}>
       {currentUser ? (
         // サーバーサイドとクライアントサイドでレンダーされる内容が違うときにエラーがでないようにする
         <div suppressHydrationWarning={true}>

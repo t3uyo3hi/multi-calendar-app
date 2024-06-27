@@ -12,14 +12,19 @@ import AccountName from "./AccountName";
 const CalendarSidePanel = () => {
   return (
     <>
-      <div className="l_SidePanel rounded-end-4 d-flex flex-column justify-content-between">
-        <div className="SidePanel_header d-flex justify-content-around pt-5">
-          <Date />
+      <div className="l_SidePanel rounded-end-4 d-flex flex-column justify-content-between position-relative">
+        <div className="SidePanel_header d-flex justify-content-between align-items-center pt-5">
+          <div className="d-flex justify-content-start ms-3">
+            <Date />
+          </div>
+          <div className="d-flex align-items-center me-3 pt-2">
+            <div className="ms-3">
+              <LoginModal />
+              <AccountName />
+            </div>
+          </div>
         </div>
-        <div className="SidePanel_header d-flex justify-content-around pt-5 position-relative">
-          <LoginModal />
-          <AccountName />
-        </div>
+
         <div className="mt-5">
           <Tab.Container defaultActiveKey="Event">
             <div className="sidepanel_body_container">

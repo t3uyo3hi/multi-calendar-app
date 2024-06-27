@@ -49,11 +49,7 @@ const LoginModal: React.FC = () => {
 
   return (
     <div>
-      <Button
-        variant="link"
-        onClick={handleModalOpen}
-        className="position-absolute top-0 end-0 m-5 p-0 text-dark"
-      >
+      <Button variant="link" onClick={handleModalOpen} className=" text-dark">
         <i className="bi bi-person-circle fs-2"></i>
       </Button>
 

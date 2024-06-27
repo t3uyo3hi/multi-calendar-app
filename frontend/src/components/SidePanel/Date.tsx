@@ -9,11 +9,13 @@ const Date = () => {
   return (
     <div>
       <div className="d-flex fs-4 gap-2">
-        <p className="ms-4 mt-1">5/8</p>
-        <Weather city={city} />
+        <p className="ms-4 mt-3">5/8</p>
+        <div className="ms-2">
+          <Weather city={city} />
+        </div>
       </div>
       <span>WednesDay</span>
-      <div className="ms-4">
+      <div className="ms-2">
         <WeatherForm setCity={setCity} />
       </div>
     </div>
