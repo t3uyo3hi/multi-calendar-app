@@ -2,18 +2,23 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import SidePanelModal from "./CalendarModal";
+import Date from "./Date";
 import LoginModal from "./LoginModal";
-import Cloud from "./Cloud";
+
 import Event from "./Event";
 import Todo from "./Todo";
+import AccountName from "./AccountName";
 
 const CalendarSidePanel = () => {
   return (
     <>
       <div className="l_SidePanel rounded-end-4 d-flex flex-column justify-content-between">
+        <div className="SidePanel_header d-flex justify-content-around pt-5">
+          <Date />
+        </div>
         <div className="SidePanel_header d-flex justify-content-around pt-5 position-relative">
-          <Cloud />
           <LoginModal />
+          <AccountName />
         </div>
         <div className="mt-5">
           <Tab.Container defaultActiveKey="Event">

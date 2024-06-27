@@ -1,17 +1,23 @@
-import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "./../utils/supabaseClient";
 import { signUpInputSchema } from "./../types/SignUpFormInput";
-import AccountFormFooter from "../ui-elements/AccountFormFooter";
-import AccountTextField from "../ui-elements/AccountTextField";
+import { useState } from "react";
 
 import type { SignUpFormInput } from "./../types/SignUpFormInput";
 import type { SubmitHandler } from "react-hook-form";
 
-const SignUpForm = () => {
+type User = {
+  id: number;
+  name: string;
+  email: string;
+};
+
+export const useSignUpForm = () => {
   const navigate = useNavigate();
+  const [error, setError] = useState<string | null>(null);
+  const [isEmailSent, setIsEmailSent] = useState(false);
 
   const {
     handleSubmit,
@@ -21,15 +27,19 @@ const SignUpForm = () => {
   } = useForm<SignUpFormInput>({
     resolver: zodResolver(signUpInputSchema),
     defaultValues: {
+      username: "",
       email: "",
       password: "",
+      confirmPassword: "",
     },
   });
 
   const onSubmit: SubmitHandler<SignUpFormInput> = async (data) => {
     try {
-      const { email, password } = data;
-      const { error } = await supabase.auth.signUp({
+      const { username, email, password } = data;
+
+      // Supabase認証でユーザーを作成
+      const { data: authData, error: authError } = await supabase.auth.signUp({
         email,
         password,
         options: {
@@ -37,57 +47,58 @@ const SignUpForm = () => {
         },
       });
 
-      if (error) {
-        throw new Error(error.message);
-      }
-      navigate("/");
+      if (authError) throw new Error(authError.message);
+      if (!authData.user) throw new Error("User not found after sign up.");
+
+      // userテーブルにデータを挿入
+      const { data: userData, error: userError } = await supabase
+        .from("user")
+        .insert({ name: username, email })
+        .select()
+        .single<User>();
+
+      if (userError) throw new Error(userError.message);
+
+      postMessage(`User ${userData.name} successfully created!`);
+
+      // メール送信成功のフラグを立てる
+      setIsEmailSent(true);
+
+      // ユーザーに通知
+      alert(
+        "登録確認メールを送信しました。メールを確認して登録を完了してください。"
+      );
+
+      // 確認ページへリダイレクト
+      navigate("/email-confirmation", { state: { email } });
     } catch (err) {
-      console.log(err);
+      if (err instanceof Error) {
+        if (err.message.includes("Email rate limit exceeded")) {
+          alert(
+            "メール送信の制限を超えました。しばらくしてから再度お試しください。"
+          );
+        } else {
+          console.error(err);
+          setError(err.message);
+        }
+      } else {
+        console.error(err);
+        setError("An unknown error occurred");
+      }
     } finally {
       reset();
     }
   };
 
-  const handleClick = () => {
-    navigate("/login", { state: { referrer: "signUp" } });
+  return {
+    handleSubmit: handleSubmit(onSubmit),
+    control,
+    isSubmitting,
+    errors,
+    error,
+    onmessage,
+    isEmailSent,
   };
-
-  return (
-    <form
-      className="d-flex flex-column gap-3 w-100"
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <AccountTextField
-        id="email"
-        name="email"
-        control={control}
-        error={errors.email?.message}
-        type="text"
-        label="メールアドレス"
-        secondaryLabel="メールアドレスを入力..."
-        icon={<i className="bi bi-person"></i>}
-        disabled={isSubmitting}
-      />
-      <AccountTextField
-        id="password"
-        name="password"
-        control={control}
-        type="password"
-        error={errors.password?.message}
-        label="パスワード"
-        secondaryLabel="パスワードを入力..."
-        icon={<i className="bi bi-lock"></i>}
-        disabled={isSubmitting}
-      />
-      <AccountFormFooter
-        disabled={isSubmitting}
-        text="サインアップ"
-        icon={<i className="bi bi-arrow-right"></i>}
-        // secondaryText="アカウントを持っている場合"
-        onClick={handleClick}
-      />
-    </form>
-  );
 };
 
-export default SignUpForm;
+export default useSignUpForm;

@@ -1,11 +1,15 @@
-// src/types/SignUpFormInput.ts
 import { z } from "zod";
 
-// Zodスキーマの定義
-export const signUpInputSchema = z.object({
-  email: z.string().email("有効なメールアドレスを入力してください"),
-  password: z.string().min(6, "パスワードは6文字以上である必要があります"),
-});
+export const signUpInputSchema = z
+  .object({
+    username: z.string().min(3, "Username must be at least 3 characters"),
+    email: z.string().email("Invalid email address"),
+    password: z.string().min(6, "Password must be at least 6 characters"),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ["confirmPassword"], // path of error
+  });
 
-// TypeScriptの型をZodスキーマから生成
 export type SignUpFormInput = z.infer<typeof signUpInputSchema>;
