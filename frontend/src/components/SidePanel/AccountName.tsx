@@ -34,14 +34,14 @@ const AccountName = () => {
   }, []);
 
   return (
-    <div style={{ marginTop: "3rem" }}>
+    <div style={{ marginBottom: "0.4rem" }}>
       {currentUser ? (
         // サーバーサイドとクライアントサイドでレンダーされる内容が違うときにエラーがでないようにする
         <div suppressHydrationWarning={true}>
           <div>{currentUser}</div>
         </div>
       ) : (
-        <div suppressHydrationWarning={true}>ログインしていません。</div>
+        <div suppressHydrationWarning={true}>Login</div>
       )}
     </div>
   );

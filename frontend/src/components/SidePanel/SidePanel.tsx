@@ -14,11 +14,11 @@ const CalendarSidePanel = () => {
     <>
       <div className="l_SidePanel rounded-end-4 d-flex flex-column justify-content-between position-relative">
         <div className="SidePanel_header d-flex justify-content-between align-items-center pt-5">
-          <div className="d-flex justify-content-start ms-3">
+          <div className="d-flex justify-content-start ms-4 mt-2">
             <Date />
           </div>
-          <div className="d-flex align-items-center me-3 pt-2">
-            <div className="ms-3">
+          <div className="d-flex me-5 mb-4 ">
+            <div>
               <LoginModal />
               <AccountName />
             </div>
