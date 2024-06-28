@@ -38,7 +38,7 @@ const CalendarSidePanel = () => {
               </Tab.Content>
             </div>
             <SidePanelModal />
-            <hr />
+
             <Nav
               className="mt-3 justify-content-center gap-5"
               variant="underline"
