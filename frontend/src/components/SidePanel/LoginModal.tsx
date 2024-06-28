@@ -71,7 +71,9 @@ const LoginModal: React.FC = () => {
             <div>
               <Form className="p-2" onSubmit={handleLoginSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email</Form.Label>
+                  <div className="mb-2">
+                    <Form.Label>Email</Form.Label>
+                  </div>
                   <Form.Control
                     type="email"
                     placeholder="Email"
@@ -84,7 +86,9 @@ const LoginModal: React.FC = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>パスワード</Form.Label>
+                  <div className="mb-2">
+                    <Form.Label>パスワード</Form.Label>
+                  </div>
                   <Form.Control
                     type="password"
                     placeholder="Password"
@@ -144,7 +148,9 @@ const LoginModal: React.FC = () => {
                 </Form.Group>
 
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Email</Form.Label>
+                  <div className="pt-2">
+                    <Form.Label>Email</Form.Label>
+                  </div>
                   <Form.Control
                     type="email"
                     placeholder="Email"
@@ -157,7 +163,9 @@ const LoginModal: React.FC = () => {
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
-                  <Form.Label>パスワード</Form.Label>
+                  <div className="pt-2">
+                    <Form.Label>パスワード</Form.Label>
+                  </div>
                   <Form.Control
                     type="password"
                     placeholder="Password"
@@ -170,7 +178,9 @@ const LoginModal: React.FC = () => {
                 </Form.Group>
 
                 <Form.Group controlId="formBasicConfirmPassword">
-                  <Form.Label>パスワードの確認</Form.Label>
+                  <div className="pt-2">
+                    <Form.Label>パスワードの確認</Form.Label>
+                  </div>
                   <Form.Control
                     type="password"
                     placeholder="Confirm Password"

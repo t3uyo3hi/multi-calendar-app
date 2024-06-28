@@ -49,10 +49,10 @@ export const useLoginForm = () => {
         // ログイン成功アラート
         alert("ログインに成功しました！");
 
-        // 短い遅延を入れてからナビゲート
+        //ナビゲートを使い更新しメールアドレスを反映
         setTimeout(() => {
-          navigate("/");
-        }, 500); // 500ミリ秒（0.5秒）の遅延
+          navigate(0);
+        });
       } else {
         throw new Error("セッションの取得に失敗しました");
       }
