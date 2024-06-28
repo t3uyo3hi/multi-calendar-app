@@ -2,20 +2,30 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import CalendarModal from "./CalendarModal";
+import Date from "./Date";
 import TodoModal from "./TodoModal";
 import LoginModal from "./LoginModal";
-import Cloud from "./Cloud";
+
 import Event from "./Event";
 import Todo from "./Todo";
+import AccountName from "./AccountName";
 
 const CalendarSidePanel = () => {
     return (
         <>
-            <div className="l_SidePanel">
-                <div className="SidePanel_header d-flex justify-content-around pt-5 position-relative">
-                    <Cloud />
-                    <LoginModal />
+            <div className="l_SidePanel rounded-end-4 d-flex flex-column justify-content-between position-relative">
+                <div className="SidePanel_header d-flex justify-content-between align-items-center pt-5">
+          <div className="d-flex justify-content-start ms-4 mt-2">
+            <Date />
+          </div>
+                    <div className="d-flex me-5 mb-4 ">
+            <div>
+                        <LoginModal />
+              <AccountName />
+            </div>
+          </div>
                 </div>
+
                 <div className="mt-5">
                     <Tab.Container defaultActiveKey="Event">
                         <Tab.Content>
@@ -34,7 +44,7 @@ const CalendarSidePanel = () => {
                             </Tab.Pane>
                         </Tab.Content>
 
-                        <hr />
+            
                         <Nav className="mt-3 justify-content-center gap-5" variant="underline" defaultActiveKey="Event">
                             <Nav.Item>
                                 <Nav.Link eventKey="Event">

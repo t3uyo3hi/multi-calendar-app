@@ -16,14 +16,14 @@ const CalendarBody = (props: CalendarBodyProps) => {
     let dayCount = 1;
 
     return (
-        <div className="text-center calendar  disp">
+        <div className="text-center calendar disp">
             {[...Array(rowNumber)].map((_, week) => (
                 <div className="calendar_table-row d-flex" key={week}>
                     {[...Array(7)].map((_, day) => {
                         if (week === 0 && day < thisFirstDayOfWeek) {
                             const num = lastDayOfLastMonth - thisFirstDayOfWeek + day + 1;
                             return (
-                                <div className="calendar_table-data p-4 is-disabled" key={day}>
+                                <div className="calendar_table-data is-disabled text-white" key={day}>
                                     <span className="calendar_date">{num}</span>
                                 </div>
                             );
@@ -31,7 +31,7 @@ const CalendarBody = (props: CalendarBodyProps) => {
                             const num = dayCount - thisLastDay;
                             dayCount++;
                             return (
-                                <div className="calendar_table-data p-4 is-disabled" key={day}>
+                                <div className="calendar_table-data is-disabled text-white" key={day}>
                                     <span className="calendar_date">{num}</span>
                                 </div>
                             );
@@ -43,15 +43,20 @@ const CalendarBody = (props: CalendarBodyProps) => {
                             const num = dayCount;
                             dayCount++;
                             return (
-                                <div className="calendar_table-data p-4 " key={day}>
-                                    <span className="calendar_date is_today">{num}</span>
+                                <div className="calendar_table-data" key={day}>
+                                    <span className="
+                                    calendar_date 
+                                    is_today 
+                                    d-flex justify-content-center align-items-center 
+                                    rounded-circle
+                                    ">{num}</span>
                                 </div>
                             );
                         } else {
                             const num = dayCount;
                             dayCount++;
                             return (
-                                <div className="calendar_table-data p-4" key={day}>
+                                <div className="calendar_table-data" key={day}>
                                     <span className="calendar_date">{num}</span>
                                 </div>
                             );
