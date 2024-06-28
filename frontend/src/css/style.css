@@ -118,3 +118,20 @@ input:focus {
   width: 400px;
   height: 400px;
 }
+
+.button-css {
+  background-color: rgba(127, 175, 207, 0.5);
+  height: 4rem;
+  font-size: 1rem;
+  text-align: left;
+  border-radius: 1rem;
+}
+
+.button-font {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.datetime-font {
+  font-size: 0.6rem;
+}

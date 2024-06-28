@@ -1,30 +1,50 @@
 import React from "react";
-import { Stack, Button } from "react-bootstrap";
+import { Stack } from "react-bootstrap";
 
 const Event = () => {
+    let EventList = [
+        {
+            titel: "ZeloPlus授業",
+            user_id: "000",
+            start_datetime: "12:00",
+            end_datetime: "14:00",
+        },
+        {
+            titel: "読書",
+            user_id: "0000",
+            start_datetime: "14:00",
+            end_datetime: "15:00",
+        },
+        {
+            titel: "復習課題",
+            user_id: "0000",
+            start_datetime: "16:00",
+            end_datetime: "18:00",
+        },
+    ];
+
+    let user = "0000";
+
+    // userとList内のuser_idが同じであればリストに表示
+    const Users_Event = EventList.map((List) => {
+        if (List.user_id == user) {
+            return (
+                <button className="button-css w-75 m-auto">
+                    <span className="button-font datetime-font ms-3 ">
+                        {List.start_datetime}-{List.end_datetime}
+                    </span>
+                    <p className="button-font ms-3 ">{List.titel}</p>
+                </button>
+            );
+        } else {
+            return <></>;
+        }
+    });
+
     return (
         <>
-            <Stack className="mt-4 mb-4" gap={3}>
-                <Button className="sidepanel_event w-75 m-auto" variant="light">
-                    <span className="sidepanel_event-time">12:00-14:00</span>
-                    <p className="sidepanel_event-ttl">ZeloPlus授業</p>
-                </Button>
-                <Button className="sidepanel_event w-75 m-auto" variant="light">
-                    <span className="sidepanel_event-time">14:00-15:00</span>
-                    <p className="sidepanel_event-ttl">読書</p>
-                </Button>
-                <Button className="sidepanel_event w-75 m-auto" variant="light">
-                    <span className="sidepanel_event-time">16:00-18:00</span>
-                    <p className="sidepanel_event-ttl">復習課題</p>
-                </Button>
-                <Button className="sidepanel_event w-75 m-auto" variant="light">
-                    <span className="sidepanel_event-time">18:00-19:00</span>
-                    <p className="sidepanel_event-ttl">ジム</p>
-                </Button>
-                <Button className="sidepanel_event w-75 m-auto" variant="light">
-                    <span className="sidepanel_event-time">22:00-23:00</span>
-                    <p className="sidepanel_event-ttl">予習課題</p>
-                </Button>
+            <Stack className="mt-5 mb-5" gap={3}>
+                {Users_Event}
             </Stack>
         </>
     );
