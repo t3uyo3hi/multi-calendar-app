@@ -11,7 +11,7 @@ const WeatherForm = ({ setCity }: { setCity: (city: string) => void }) => {
   return (
     <div>
       <div className="weather d-flex justify-content-start pt-2">
-        <div className="form mt-3  w-75  ">
+        <div className="form mt-3  w-75   ">
           <form onSubmit={handleSubmit}>
             <div className="bg-light">
               <input
