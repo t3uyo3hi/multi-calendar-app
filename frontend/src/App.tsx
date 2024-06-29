@@ -31,7 +31,7 @@ const App: React.FC = () => {
                 </div>
 
                 <div className="l_SidePanel rounded-end-4 col-4">
-                  <SidePanel />
+                  <SidePanel date={date} />
                 </div>
               </div>
             </div>
