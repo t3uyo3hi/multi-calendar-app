@@ -22,7 +22,7 @@ const CalendarSidePanel = ({ date }: SidePanelProps) => {
           <div className="d-flex justify-content-start ms-4 mt-2">
             <Date date={date} />
           </div>
-          <div className="d-flex me-5 mb-4 ">
+          <div className="d-flex me-5 mt-3 ">
             <div>
               <LoginModal />
               <AccountName />
