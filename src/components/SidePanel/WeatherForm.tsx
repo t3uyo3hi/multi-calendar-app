@@ -13,11 +13,12 @@ const WeatherForm = ({ setCity }: { setCity: (city: string) => void }) => {
       <div className="weather d-flex justify-content-start pt-2">
         <div className="form mt-3  w-75   ">
           <form onSubmit={handleSubmit}>
-            <div className="bg-light">
+            <div className="bg-light rounded-pill overflow-hidden">
               <input
                 type="text"
                 name="city"
-                placeholder="天気取得：都市名を入力"
+                placeholder="都市名を入力"
+                className="ms-2"
               />
             </div>
           </form>

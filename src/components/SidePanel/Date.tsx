@@ -28,8 +28,8 @@ const Date = ({ date }: DateProps) => {
           <Weather city={city} />
         </div>
       </div>
-      <span>{dayOfWeek[date.getDay()]}</span>
-      <div className="ms-2">
+      <span className="me-4">{dayOfWeek[date.getDay()]}</span>
+      <div className="ms-3">
         <WeatherForm setCity={setCity} />
       </div>
     </div>
