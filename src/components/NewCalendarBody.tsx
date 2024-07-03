@@ -24,7 +24,7 @@ const CalendarBody = (props: CalendarBodyProps) => {
   };
 
   return (
-    <div className="text-center calendar disp">
+    <div className="text-center calendar  disp">
       {[...Array(rowNumber)].map((_, week) => (
         <div className="calendar_table-row d-flex" key={week}>
           {[...Array(7)].map((_, day) => {
@@ -32,7 +32,7 @@ const CalendarBody = (props: CalendarBodyProps) => {
               const num = lastDayOfLastMonth - thisFirstDayOfWeek + day + 1;
               return (
                 <div
-                  className={`calendar_table-data is-disabled text-white ${
+                  className={`calendar_table-data p-4 is-disabled ${
                     selectedDate?.getDate() === num &&
                     selectedDate?.getMonth() === thisMonth - 1 &&
                     selectedDate?.getFullYear() === thisYear
@@ -52,7 +52,7 @@ const CalendarBody = (props: CalendarBodyProps) => {
               dayCount++;
               return (
                 <div
-                  className={`calendar_table-data is-disabled text-white ${
+                  className={`calendar_table-data p-4 is-disabled ${
                     selectedDate?.getDate() === num &&
                     selectedDate?.getMonth() === thisMonth + 1 &&
                     selectedDate?.getFullYear() === thisYear
@@ -67,16 +67,16 @@ const CalendarBody = (props: CalendarBodyProps) => {
                   <span className="calendar_date">{num}</span>
                 </div>
               );
-            } else {
+            } else if (
+              today.getFullYear() === thisYear &&
+              today.getMonth() === thisMonth &&
+              today.getDate() === dayCount
+            ) {
               const num = dayCount;
-              const isToday =
-                today.getFullYear() === thisYear &&
-                today.getMonth() === thisMonth &&
-                today.getDate() === num;
               dayCount++;
               return (
                 <div
-                  className={`calendar_table-data ${
+                  className={`calendar_table-data p-4 ${
                     selectedDate?.getDate() === num &&
                     selectedDate?.getMonth() === thisMonth &&
                     selectedDate?.getFullYear() === thisYear
@@ -88,13 +88,27 @@ const CalendarBody = (props: CalendarBodyProps) => {
                     handleDateClick(new Date(thisYear, thisMonth, num))
                   }
                 >
-                  <span
-                    className={`calendar_date ${
-                      isToday ? "is_today" : ""
-                    } d-flex justify-content-center align-items-center rounded-circle`}
-                  >
-                    {num}
-                  </span>
+                  <span className="calendar_date is_today">{num}</span>
+                </div>
+              );
+            } else {
+              const num = dayCount;
+              dayCount++;
+              return (
+                <div
+                  className={`calendar_table-data p-4 ${
+                    selectedDate?.getDate() === num &&
+                    selectedDate?.getMonth() === thisMonth &&
+                    selectedDate?.getFullYear() === thisYear
+                      ? "is-selected"
+                      : ""
+                  }`}
+                  key={day}
+                  onClick={() =>
+                    handleDateClick(new Date(thisYear, thisMonth, num))
+                  }
+                >
+                  <span className="calendar_date">{num}</span>
                 </div>
               );
             }

@@ -12,6 +12,7 @@ import "./css/style.css";
 
 const App: React.FC = () => {
   const [date, setDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   return (
     <Router>
@@ -25,13 +26,19 @@ const App: React.FC = () => {
                     <CalendarHeader date={date} setDate={setDate} />
                     <div className="calendar_table w-100">
                       <DayOfWeekHead />
-                      <CalendarBody date={date} />
+                      <CalendarBody
+                        date={date}
+                        onDateClick={(selectedDate) => {
+                          // 選択された日付を処理するロジック
+                          setSelectedDate(selectedDate);
+                        }}
+                      />
                     </div>
                   </div>
                 </div>
 
                 <div className="l_SidePanel rounded-end-4 col-4">
-                  <SidePanel date={date} />
+                  <SidePanel date={selectedDate} />
                 </div>
               </div>
             </div>
