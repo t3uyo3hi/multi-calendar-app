@@ -44,6 +44,18 @@ body {
 
 .is_today {
   background-color: var(--gray-color);
+
+  width: 60px;
+  height: 60px;
+}
+
+.calendar_table-data {
+  cursor: pointer;
+}
+
+.calendar_table-data.is-selected .calendar_date {
+  background-color: rgba(127, 175, 207, 0.5);
+
   width: 60px;
   height: 60px;
 }
